@@ -2,7 +2,6 @@ from mc_pricer.simulators.geometric_bm import GeometricBrownianMotionSimulator
 from mc_pricer.utils.plots import plot_paths
 import numpy as np
 
-# main simulator
 class GeometricBrownianMotionSimulator:
     def __init__(self, S0, mu, sigma, T, n_steps, n_paths, seed=42):
         self.S0 = S0
@@ -24,5 +23,4 @@ class GeometricBrownianMotionSimulator:
             paths[:, t] = paths[:, t - 1] * np.exp(
                 (self.mu - 0.5 * self.sigma ** 2) * dt + self.sigma * np.sqrt(dt) * z
             )
-
         return paths
